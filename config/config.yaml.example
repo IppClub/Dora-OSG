@@ -1,0 +1,33 @@
+# 服务器配置
+server:
+  port: 8866
+
+# 同步配置
+sync:
+  interval: 24h
+
+# 仓库配置
+repos:
+  - name: "dora-demo"
+    url:  "https://atomgit.com/ippclub/dora-demo.git"
+  - name: "dora-story"
+    url:  "https://atomgit.com/ippclub/dora-story.git"
+  - name: "lsd-spine-1x"
+    url:  "https://atomgit.com/ippclub/lsd-spine-1x.git"
+    lfs: true
+  - name: "lsd-spine-2x"
+    url:  "https://atomgit.com/ippclub/lsd-spine-2x.git"
+    lfs: true
+
+# 存储配置
+storage:
+  path: ./data
+
+# 下载配置
+download:
+  base_url: http://localhost:8866
+
+# 限流配置
+rate_limit:
+  rps: 10
+  burst: 20
