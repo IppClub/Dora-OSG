@@ -9,14 +9,16 @@ sync:
 # 仓库配置
 repos:
   - name: "dora-demo"
-    url:  "https://atomgit.com/ippclub/dora-demo.git"
+    url:  "https://atomgit.com/ippclub/dora-demo"
   - name: "dora-story"
-    url:  "https://atomgit.com/ippclub/dora-story.git"
+    url:  "https://atomgit.com/ippclub/dora-story"
+  - name: "lsd"
+    url:  "https://atomgit.com/ippclub/lsd"
   - name: "lsd-spine-1x"
-    url:  "https://atomgit.com/ippclub/lsd-spine-1x.git"
+    url:  "https://atomgit.com/ippclub/lsd-spine-1x"
     lfs: true
   - name: "lsd-spine-2x"
-    url:  "https://atomgit.com/ippclub/lsd-spine-2x.git"
+    url:  "https://atomgit.com/ippclub/lsd-spine-2x"
     lfs: true
 
 # 存储配置

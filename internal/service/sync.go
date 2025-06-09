@@ -88,6 +88,9 @@ func (s *SyncService) syncRepo(r *git.Repo) error {
 	s.mu.Lock()
 	defer s.mu.Unlock()
 
+	// Get the latest commit
+	latestCommitHash, _, errCommit := r.GetLatestCommit()
+
 	// Pull or clone the repository
 	if err := r.PullOrClone(); err != nil {
 		return err
@@ -97,6 +100,12 @@ func (s *SyncService) syncRepo(r *git.Repo) error {
 	commitHash, tag, err := r.GetLatestCommit()
 	if err != nil {
 		return err
+	}
+
+	if errCommit != nil && latestCommitHash != commitHash {
+		// Delete the latest zip file
+		zipFilePath := filepath.Join(s.cfg.Storage.Path, "zips", fmt.Sprintf("%s-%s.zip", r.Name, latestCommitHash[:7]))
+		os.Remove(zipFilePath)
 	}
 
 	// Create zip file
