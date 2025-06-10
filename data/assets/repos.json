@@ -28,8 +28,8 @@
 			"en": "Luv Sense Digital"
 		},
 		"desc": {
-			"zh": "在末日后，地面上一片焦土，幸存者人类苟延残喘活在地下。游戏公司为了解决冲突，开发了一款没有人能拒绝的沉浸式游戏。但这个游戏却是阴谋的起点，玩家进入游戏后很多年都不会回到现实社会。面对真正的苦难，游戏商喜闻乐见，他们的年轻人沉浸在虚拟的数字世界。而有一人看透了游戏公司的本质，他希望能改变这一切。（开发中项目）",
-			"en": "In the post-apocalyptic world, the surface is a wasteland, and humans survive underground. The game company developed a game that no one could refuse to play. But this game is the starting point of the conspiracy. Players enter the game and many years later they will not return to the real world. The game company is happy to see the young people immersed in the virtual digital world. But there is one person who sees through the essence of the game company, and he hopes to change this. (In development project)"
+			"zh": "（开发中项目）在末日后，地面上一片焦土，幸存者人类苟延残喘活在地下。游戏公司为了解决冲突，开发了一款没有人能拒绝的沉浸式游戏。但这个游戏却是阴谋的起点，玩家进入游戏后很多年都不会回到现实社会。面对真正的苦难，游戏商喜闻乐见，他们的年轻人沉浸在虚拟的数字世界。而有一人看透了游戏公司的本质，他希望能改变这一切。运行项目需要额外下载 lsd-spine-1x 或是 lsd-spine-2x 动画文件一起使用。",
+			"en": "(In development project) In the post-apocalyptic world, the surface is a wasteland, and humans survive underground. The game company developed a game that no one could refuse to play. But this game is the starting point of the conspiracy. Players enter the game and many years later they will not return to the real world. The game company is happy to see the young people immersed in the virtual digital world. But there is one person who sees through the essence of the game company, and he hopes to change this. Running the project requires downloading lsd-spine-1x or lsd-spine-2x animation files."
 		}
 	},
 	{

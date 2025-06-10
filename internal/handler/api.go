@@ -104,6 +104,7 @@ func (a *API) listPackages(w http.ResponseWriter, r *http.Request) {
 
 		packageInfo := model.PackageInfo{
 			Name:    repo.Name,
+			URL:     repo.URL,
 			Version: make(map[string]*model.Version),
 		}
 
@@ -174,6 +175,7 @@ func (a *API) getPackageVersions(w http.ResponseWriter, r *http.Request) {
 
 	packageInfo := model.PackageInfo{
 		Name:    repo.Name,
+		URL:     repo.URL,
 		Version: make(map[string]*model.Version),
 	}
 

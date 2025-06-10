@@ -16,6 +16,7 @@ type RepoMeta struct {
 // PackageInfo represents the package information for API responses
 type PackageInfo struct {
 	Name    string     `json:"name"`
+	URL     string     `json:"url"`
 	Latest  *Version   `json:"latest"`
 	Version map[string]*Version `json:"-"` // 按标签索引的版本信息
 }
