@@ -80,12 +80,13 @@ func (s *SQLiteStore) UpsertRepo(repo *model.DBRepo) error {
 // AddVersion adds a new version record
 func (s *SQLiteStore) AddVersion(version *model.DBVersion) error {
 	query := `
-		INSERT INTO versions (repo_id, tag, commit_hash, zip_file, size)
-		VALUES (?, ?, ?, ?, ?)
+		INSERT INTO versions (repo_id, tag, commit_hash, zip_file, size, created_at)
+		VALUES (?, ?, ?, ?, ?, ?)
 		ON CONFLICT(repo_id, tag) DO UPDATE SET
 			commit_hash = excluded.commit_hash,
 			zip_file = excluded.zip_file,
-			size = excluded.size
+			size = excluded.size,
+			created_at = excluded.created_at
 		RETURNING id
 	`
 
@@ -96,6 +97,7 @@ func (s *SQLiteStore) AddVersion(version *model.DBVersion) error {
 		version.CommitHash,
 		version.ZipFile,
 		version.Size,
+		version.CreatedAt,
 	).Scan(&version.ID)
 
 	if err != nil {

@@ -88,8 +88,13 @@ func (s *SyncService) syncRepo(r *git.Repo) error {
 	s.mu.Lock()
 	defer s.mu.Unlock()
 
-	// Get the latest commit
-	latestCommitHash, _, errCommit := r.GetLatestCommit()
+	latestCommitHash := ""
+	{
+		dbRepo, err := s.store.GetRepoByName(r.Name)
+		if err == nil {
+			latestCommitHash = dbRepo.CommitHash
+		}
+	}
 
 	// Pull or clone the repository
 	if err := r.PullOrClone(); err != nil {
@@ -102,9 +107,10 @@ func (s *SyncService) syncRepo(r *git.Repo) error {
 		return err
 	}
 
-	if errCommit != nil && latestCommitHash != commitHash {
+	if len(latestCommitHash) >= 7 && latestCommitHash != commitHash {
 		// Delete the latest zip file
 		zipFilePath := filepath.Join(s.cfg.Storage.Path, "zips", fmt.Sprintf("%s-%s.zip", r.Name, latestCommitHash[:7]))
+		s.logger.Info("deleting zip file", zap.String("repo", r.Name), zap.String("zip", zipFilePath))
 		os.Remove(zipFilePath)
 	}
 
@@ -119,6 +125,9 @@ func (s *SyncService) syncRepo(r *git.Repo) error {
 		if err := zip.CreateZip(r.Path, zipFilePath); err != nil {
 			return err
 		}
+	} else {
+		s.logger.Info("zip file already exists", zap.String("repo", r.Name), zap.String("zip", zipFileName))
+		return nil
 	}
 
 	// Get file size
@@ -149,6 +158,7 @@ func (s *SyncService) syncRepo(r *git.Repo) error {
 		CommitHash: commitHash,
 		ZipFile:    zipFileName,
 		Size:       size,
+		CreatedAt:  time.Now(),
 	}
 
 	if err := s.store.AddVersion(version); err != nil {
