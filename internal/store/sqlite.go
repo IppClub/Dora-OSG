@@ -124,7 +124,7 @@ func (s *SQLiteStore) GetRepoByName(name string) (*model.DBRepo, error) {
 		&repo.UpdatedAt,
 	)
 	if err == sql.ErrNoRows {
-		return nil, nil
+		return nil, fmt.Errorf("repo not found: %s", name)
 	}
 	if err != nil {
 		return nil, fmt.Errorf("failed to get repo: %w", err)
@@ -241,6 +241,45 @@ func (s *SQLiteStore) MarkVersionAsDeleted(versionID int64) error {
 	_, err := s.db.Exec(query, versionID)
 	if err != nil {
 		return fmt.Errorf("failed to mark version as deleted: %w", err)
+	}
+	return nil
+}
+
+// GetLatestPackageListVersion gets the latest package list version
+func (s *SQLiteStore) GetLatestPackageListVersion() (*model.DBPackageListVersion, error) {
+	query := `SELECT * FROM package_list_versions ORDER BY id DESC LIMIT 1`
+	version := &model.DBPackageListVersion{}
+	err := s.db.QueryRow(query).Scan(
+		&version.ID,
+		&version.Version,
+		&version.UpdatedAt,
+	)
+	if err == sql.ErrNoRows {
+		// If no version exists, create initial version
+		version.Version = 1
+		version.UpdatedAt = time.Now()
+		err = s.IncrementPackageListVersion()
+		if err != nil {
+			return nil, fmt.Errorf("failed to create initial version: %w", err)
+		}
+		return version, nil
+	}
+	if err != nil {
+		return nil, fmt.Errorf("failed to get latest package list version: %w", err)
+	}
+	return version, nil
+}
+
+// IncrementPackageListVersion increments the package list version
+func (s *SQLiteStore) IncrementPackageListVersion() error {
+	query := `
+		INSERT INTO package_list_versions (version, updated_at)
+		SELECT COALESCE(MAX(version), 0) + 1, CURRENT_TIMESTAMP
+		FROM package_list_versions
+	`
+	_, err := s.db.Exec(query)
+	if err != nil {
+		return fmt.Errorf("failed to increment package list version: %w", err)
 	}
 	return nil
 }

@@ -52,6 +52,15 @@ func (r *Repo) PullOrClone() error {
 		return fmt.Errorf("failed to pull: %w", err)
 	}
 
+	err = repo.Fetch(&git.FetchOptions{
+		RemoteName: "origin",
+		Tags:       git.AllTags,
+		Force:      true,
+	})
+	if err != nil && err != git.NoErrAlreadyUpToDate {
+		return fmt.Errorf("failed to fetch: %w", err)
+	}
+
 	// If LFS is enabled, run 'git lfs pull' after pulling
 	if r.LFS {
 		gitLFSPath, err := exec.LookPath("git")

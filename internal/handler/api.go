@@ -2,8 +2,10 @@ package handler
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
 	"path/filepath"
+	"sync"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
@@ -21,6 +23,12 @@ type API struct {
 	store       *store.SQLiteStore
 	syncService *service.SyncService
 	rateLimiter *RateLimiter
+	mu          sync.RWMutex
+	cache       struct {
+		packages     []byte
+		version      []byte
+		packageInfo  map[string][]byte
+	}
 }
 
 // NewAPI creates a new API instance
@@ -34,13 +42,21 @@ func NewAPI(cfg *config.Config, logger *zap.Logger, syncService *service.SyncSer
 	// Initialize rate limiter
 	rateLimiter := NewRateLimiter(float64(cfg.RateLimit.RPS), cfg.RateLimit.Burst)
 
-	return &API{
+	api := &API{
 		cfg:         cfg,
 		logger:      logger,
 		store:       dbStore,
 		syncService: syncService,
 		rateLimiter: rateLimiter,
-	}, nil
+	}
+	api.cache.packageInfo = make(map[string][]byte)
+
+	// Initialize cache
+	if err := api.UpdateCache(); err != nil {
+		logger.Error("failed to initialize cache", zap.Error(err))
+	}
+
+	return api, nil
 }
 
 // Close closes the API and its resources
@@ -63,6 +79,7 @@ func (a *API) RegisterRoutes(r chi.Router) {
 		r.Get("/packages", a.listPackages)
 		r.Get("/packages/{name}", a.getPackageVersions)
 		r.Get("/packages/{name}/latest", a.getLatestPackage)
+		r.Get("/packages/version", a.getPackageListVersion)
 	})
 
 	// Admin routes (localhost only)
@@ -82,13 +99,15 @@ func (a *API) RegisterRoutes(r chi.Router) {
 	r.Handle("/assets/*", a.rateLimiter.RateLimit(SecureAssetsServer(http.StripPrefix("/assets/", assetsServer))))
 }
 
-// listPackages returns a list of all packages
-func (a *API) listPackages(w http.ResponseWriter, r *http.Request) {
+// UpdateCache updates all cached responses
+func (a *API) UpdateCache() error {
+	a.mu.Lock()
+	defer a.mu.Unlock()
+
+	// Update packages cache
 	repos, err := a.store.GetAllRepos()
 	if err != nil {
-		a.logger.Error("failed to get repos", zap.Error(err))
-		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
-		return
+		return fmt.Errorf("failed to get repos: %w", err)
 	}
 
 	packages := make([]model.PackageInfo, 0, len(repos))
@@ -117,7 +136,7 @@ func (a *API) listPackages(w http.ResponseWriter, r *http.Request) {
 				Tag:       latest.Tag,
 				Commit:    latest.CommitHash,
 				Download:  a.getDownloadURL(latest.ZipFile),
-				UpdatedAt: latest.CreatedAt,
+				UpdatedAt: latest.CreatedAt.Unix(),
 			}
 		}
 
@@ -129,15 +148,66 @@ func (a *API) listPackages(w http.ResponseWriter, r *http.Request) {
 				Tag:       v.Tag,
 				Commit:    v.CommitHash,
 				Download:  a.getDownloadURL(v.ZipFile),
-				UpdatedAt: v.CreatedAt,
+				UpdatedAt: v.CreatedAt.Unix(),
 			}
 		}
 
 		packages = append(packages, packageInfo)
+
+		// Cache individual package info
+		packageInfoBytes, err := json.Marshal(packageInfo)
+		if err != nil {
+			a.logger.Error("failed to marshal package info",
+				zap.String("repo", repo.Name),
+				zap.Error(err),
+			)
+			continue
+		}
+		a.cache.packageInfo[repo.Name] = packageInfoBytes
+	}
+
+	// Cache all packages
+	packagesBytes, err := json.Marshal(packages)
+	if err != nil {
+		return fmt.Errorf("failed to marshal packages: %w", err)
+	}
+	a.cache.packages = packagesBytes
+
+	// Update version cache
+	version, err := a.store.GetLatestPackageListVersion()
+	if err != nil {
+		return fmt.Errorf("failed to get package list version: %w", err)
+	}
+
+	versionResponse := struct {
+		Version   int64 `json:"version"`
+		UpdatedAt int64 `json:"updatedAt"`
+	}{
+		Version:   version.Version,
+		UpdatedAt: version.UpdatedAt.Unix(),
+	}
+
+	versionBytes, err := json.Marshal(versionResponse)
+	if err != nil {
+		return fmt.Errorf("failed to marshal version: %w", err)
+	}
+	a.cache.version = versionBytes
+
+	return nil
+}
+
+// listPackages returns a list of all packages
+func (a *API) listPackages(w http.ResponseWriter, r *http.Request) {
+	a.mu.RLock()
+	defer a.mu.RUnlock()
+
+	if a.cache.packages == nil {
+		http.Error(w, "Cache not initialized", http.StatusInternalServerError)
+		return
 	}
 
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(packages)
+	w.Write(a.cache.packages)
 }
 
 // getPackageVersions returns all versions of a package
@@ -148,64 +218,16 @@ func (a *API) getPackageVersions(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	repo, err := a.store.GetRepoByName(name)
-	if err != nil {
-		a.logger.Error("failed to get repo",
-			zap.String("name", name),
-			zap.Error(err),
-		)
-		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	a.mu.RLock()
+	defer a.mu.RUnlock()
+
+	if cached, ok := a.cache.packageInfo[name]; ok {
+		w.Header().Set("Content-Type", "application/json")
+		w.Write(cached)
 		return
 	}
 
-	if repo == nil {
-		http.Error(w, "package not found", http.StatusNotFound)
-		return
-	}
-
-	versions, err := a.store.GetVersionsByRepoID(repo.ID, 3)
-	if err != nil {
-		a.logger.Error("failed to get versions",
-			zap.String("repo", name),
-			zap.Error(err),
-		)
-		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
-		return
-	}
-
-	packageInfo := model.PackageInfo{
-		Name:    repo.Name,
-		URL:     repo.URL,
-		Version: make(map[string]*model.Version),
-	}
-
-	// Add latest version
-	if len(versions) > 0 {
-		latest := versions[0]
-		packageInfo.Latest = &model.Version{
-			File:      latest.ZipFile,
-			Size:      latest.Size,
-			Tag:       latest.Tag,
-			Commit:    latest.CommitHash,
-			Download:  a.getDownloadURL(latest.ZipFile),
-			UpdatedAt: latest.CreatedAt,
-		}
-	}
-
-	// Add all versions
-	for _, v := range versions {
-		packageInfo.Version[v.Tag] = &model.Version{
-			File:      v.ZipFile,
-			Size:      v.Size,
-			Tag:       v.Tag,
-			Commit:    v.CommitHash,
-			Download:  a.getDownloadURL(v.ZipFile),
-			UpdatedAt: v.CreatedAt,
-		}
-	}
-
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(packageInfo)
+	http.Error(w, "package not found", http.StatusNotFound)
 }
 
 // getLatestPackage redirects to the latest version of a package
@@ -260,6 +282,10 @@ func (a *API) triggerSync(w http.ResponseWriter, r *http.Request) {
 			a.logger.Error("manual sync failed", zap.Error(err))
 		} else {
 			a.logger.Info("manual sync completed successfully")
+			// Update cache after successful sync
+			if err := a.UpdateCache(); err != nil {
+				a.logger.Error("failed to update cache after sync", zap.Error(err))
+			}
 		}
 	}()
 
@@ -274,4 +300,18 @@ func (a *API) triggerSync(w http.ResponseWriter, r *http.Request) {
 // getDownloadURL returns the full download URL for a file
 func (a *API) getDownloadURL(filename string) string {
 	return a.cfg.Download.BaseURL + "/zips/" + filename
+}
+
+// getPackageListVersion returns the current version of the package list
+func (a *API) getPackageListVersion(w http.ResponseWriter, r *http.Request) {
+	a.mu.RLock()
+	defer a.mu.RUnlock()
+
+	if a.cache.version == nil {
+		http.Error(w, "Cache not initialized", http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(a.cache.version)
 }

@@ -22,6 +22,7 @@ type SyncService struct {
 	store  *store.SQLiteStore
 	repos  map[string]*git.Repo
 	mu     sync.RWMutex
+	onSync func() // Callback function to be called after successful sync
 }
 
 // NewSyncService creates a new SyncService instance
@@ -47,6 +48,13 @@ func NewSyncService(cfg *config.Config, logger *zap.Logger) (*SyncService, error
 	return s, nil
 }
 
+// SetOnSyncCallback sets the callback function to be called after successful sync
+func (s *SyncService) SetOnSyncCallback(callback func()) {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+	s.onSync = callback
+}
+
 // Close closes the service and its resources
 func (s *SyncService) Close() error {
 	return s.store.Close()
@@ -56,13 +64,16 @@ func (s *SyncService) Close() error {
 func (s *SyncService) SyncAll() error {
 	var wg sync.WaitGroup
 	errChan := make(chan error, len(s.repos))
+	hasChanges := false
 
 	for _, repo := range s.repos {
 		wg.Add(1)
 		go func(r *git.Repo) {
 			defer wg.Done()
-			if err := s.syncRepo(r); err != nil {
+			if err, changed := s.syncRepo(r); err != nil {
 				errChan <- fmt.Errorf("failed to sync repo %s: %w", r.Name, err)
+			} else if changed {
+				hasChanges = true
 			}
 		}(repo)
 	}
@@ -80,38 +91,51 @@ func (s *SyncService) SyncAll() error {
 		return fmt.Errorf("sync errors: %v", errs)
 	}
 
+	// If any repository was updated, increment the package list version
+	if hasChanges {
+		if err := s.store.IncrementPackageListVersion(); err != nil {
+			s.logger.Error("failed to increment package list version", zap.Error(err))
+		} else {
+			s.logger.Info("package list version incremented")
+		}
+
+		// Call the callback function if set
+		s.mu.RLock()
+		if s.onSync != nil {
+			s.onSync()
+		}
+		s.mu.RUnlock()
+	}
+
 	return nil
 }
 
 // syncRepo synchronizes a single repository
-func (s *SyncService) syncRepo(r *git.Repo) error {
+func (s *SyncService) syncRepo(r *git.Repo) (error, bool) {
 	s.mu.Lock()
 	defer s.mu.Unlock()
 
 	latestCommitHash := ""
+	latestTag := ""
+	lastSync := time.Now()
 	{
 		dbRepo, err := s.store.GetRepoByName(r.Name)
 		if err == nil {
 			latestCommitHash = dbRepo.CommitHash
+			latestTag = dbRepo.Tag
+			lastSync = dbRepo.LastSync
 		}
 	}
 
 	// Pull or clone the repository
 	if err := r.PullOrClone(); err != nil {
-		return err
+		return err, false
 	}
 
 	// Get the latest commit and tag
 	commitHash, tag, err := r.GetLatestCommit()
 	if err != nil {
-		return err
-	}
-
-	if len(latestCommitHash) >= 7 && latestCommitHash != commitHash {
-		// Delete the latest zip file
-		zipFilePath := filepath.Join(s.cfg.Storage.Path, "zips", fmt.Sprintf("%s-%s.zip", r.Name, latestCommitHash[:7]))
-		s.logger.Info("deleting zip file", zap.String("repo", r.Name), zap.String("zip", zipFilePath))
-		os.Remove(zipFilePath)
+		return err, false
 	}
 
 	// Create zip file
@@ -120,20 +144,19 @@ func (s *SyncService) syncRepo(r *git.Repo) error {
 
 	if _, err := os.Stat(zipFilePath); err != nil {
 		if !os.IsNotExist(err) {
-			return err
+			return err, false
 		}
 		if err := zip.CreateZip(r.Path, zipFilePath); err != nil {
-			return err
+			return err, false
 		}
 	} else {
 		s.logger.Info("zip file already exists", zap.String("repo", r.Name), zap.String("zip", zipFileName))
-		return nil
 	}
 
 	// Get file size
 	size, err := zip.GetFileSize(zipFilePath)
 	if err != nil {
-		return err
+		return err, false
 	}
 
 	// Update repository metadata
@@ -141,14 +164,14 @@ func (s *SyncService) syncRepo(r *git.Repo) error {
 		Name:       r.Name,
 		URL:        r.URL,
 		Tag:        tag,
-		LastSync:   time.Now(),
+		LastSync:   lastSync,
 		CommitHash: commitHash,
 		ZipFile:    zipFileName,
 		Size:       size,
 	}
 
 	if err := s.store.UpsertRepo(dbRepo); err != nil {
-		return fmt.Errorf("failed to update repo metadata: %w", err)
+		return fmt.Errorf("failed to update repo metadata: %w", err), false
 	}
 
 	// Add version record
@@ -162,7 +185,33 @@ func (s *SyncService) syncRepo(r *git.Repo) error {
 	}
 
 	if err := s.store.AddVersion(version); err != nil {
-		return fmt.Errorf("failed to add version: %w", err)
+		return fmt.Errorf("failed to add version: %w", err), false
+	}
+
+	if latestTag == tag && len(latestCommitHash) >= 7 && latestCommitHash != commitHash {
+		// Delete the latest zip file
+		zipFilePath := filepath.Join(s.cfg.Storage.Path, "zips", fmt.Sprintf("%s-%s.zip", r.Name, latestCommitHash[:7]))
+		s.logger.Info("deleting zip file", zap.String("repo", r.Name), zap.String("zip", zipFilePath))
+		os.Remove(zipFilePath)
+	}
+
+	// Delete older than 3 latest undeleted versions
+	versions, err := s.store.GetOlderThan3LatestUnDeletedVersions(dbRepo.ID)
+	if err != nil {
+		return fmt.Errorf("failed to get older than 3 latest un deleted versions: %w", err), false
+	}
+
+	if !(len(versions) == 1 && versions[0].Tag == "") {
+		for _, version := range versions {
+			// Delete zip file
+			zipFilePath := filepath.Join(s.cfg.Storage.Path, "zips", version.ZipFile)
+			os.Remove(zipFilePath)
+			s.logger.Info("deleting zip file", zap.String("repo", r.Name), zap.String("zip", zipFilePath))
+			// Mark version as deleted
+			if err := s.store.MarkVersionAsDeleted(version.ID); err != nil {
+				return fmt.Errorf("failed to mark version as deleted: %w", err), false
+			}
+		}
 	}
 
 	s.logger.Info("repository synchronized",
@@ -171,20 +220,5 @@ func (s *SyncService) syncRepo(r *git.Repo) error {
 		zap.String("tag", tag),
 	)
 
-	// Delete older than 3 latest undeleted versions
-	versions, err := s.store.GetOlderThan3LatestUnDeletedVersions(dbRepo.ID)
-	if err != nil {
-		return fmt.Errorf("failed to get older than 3 latest un deleted versions: %w", err)
-	}
-	for _, version := range versions {
-		// Delete zip file
-		zipFilePath := filepath.Join(s.cfg.Storage.Path, "zips", version.ZipFile)
-		os.Remove(zipFilePath)
-		// Mark version as deleted
-		if err := s.store.MarkVersionAsDeleted(version.ID); err != nil {
-			return fmt.Errorf("failed to mark version as deleted: %w", err)
-		}
-	}
-
-	return nil
+	return nil, true
 }

@@ -30,6 +30,13 @@ type DBVersion struct {
 	Deleted    int       `db:"deleted"`
 }
 
+// DBPackageListVersion represents the version of package list
+type DBPackageListVersion struct {
+	ID        int64     `db:"id"`
+	Version   int64     `db:"version"`
+	UpdatedAt time.Time `db:"updated_at"`
+}
+
 // Schema contains the SQL schema for the database
 const Schema = `
 CREATE TABLE IF NOT EXISTS repos (
@@ -56,6 +63,12 @@ CREATE TABLE IF NOT EXISTS versions (
     deleted INTEGER NOT NULL DEFAULT 0,
     FOREIGN KEY (repo_id) REFERENCES repos(id) ON DELETE CASCADE,
     UNIQUE(repo_id, tag)
+);
+
+CREATE TABLE IF NOT EXISTS package_list_versions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    version INTEGER NOT NULL DEFAULT 1,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE INDEX IF NOT EXISTS idx_repos_name ON repos(name);

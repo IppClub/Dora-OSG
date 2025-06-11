@@ -33,5 +33,8 @@ Thumbs.db
 /logs/
 !/data/assets/
 config/config.yaml
+
+# Scripts
 build.sh
+upload.sh
 build_linux.sh
