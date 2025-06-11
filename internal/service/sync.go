@@ -142,6 +142,8 @@ func (s *SyncService) syncRepo(r *git.Repo) (error, bool) {
 	zipFileName := fmt.Sprintf("%s-%s.zip", r.Name, commitHash[:7])
 	zipFilePath := filepath.Join(s.cfg.Storage.Path, "zips", zipFileName)
 
+	// Create zip file if it doesn't exist
+	zipCreated := false
 	if _, err := os.Stat(zipFilePath); err != nil {
 		if !os.IsNotExist(err) {
 			return err, false
@@ -149,6 +151,8 @@ func (s *SyncService) syncRepo(r *git.Repo) (error, bool) {
 		if err := zip.CreateZip(r.Path, zipFilePath); err != nil {
 			return err, false
 		}
+		zipCreated = true
+		lastSync = time.Now()
 	} else {
 		s.logger.Info("zip file already exists", zap.String("repo", r.Name), zap.String("zip", zipFileName))
 	}
@@ -220,5 +224,10 @@ func (s *SyncService) syncRepo(r *git.Repo) (error, bool) {
 		zap.String("tag", tag),
 	)
 
-	return nil, true
+	if zipCreated || tag != latestTag {
+		s.logger.Info("new zip file created or tag changed", zap.String("repo", r.Name), zap.String("zip", zipFileName), zap.String("tag", tag), zap.String("latestTag", latestTag))
+		return nil, true
+	}
+
+	return nil, false
 }
