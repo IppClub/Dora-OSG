@@ -79,7 +79,7 @@ func (a *API) RegisterRoutes(r chi.Router) {
 		r.Get("/packages", a.listPackages)
 		r.Get("/packages/{name}", a.getPackageVersions)
 		r.Get("/packages/{name}/latest", a.getLatestPackage)
-		r.Get("/packages/version", a.getPackageListVersion)
+		r.Get("/package-list-version", a.getPackageListVersion)
 	})
 
 	// Admin routes (localhost only)

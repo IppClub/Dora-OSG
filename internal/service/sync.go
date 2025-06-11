@@ -185,7 +185,7 @@ func (s *SyncService) syncRepo(r *git.Repo) (error, bool) {
 		CommitHash: commitHash,
 		ZipFile:    zipFileName,
 		Size:       size,
-		CreatedAt:  time.Now(),
+		CreatedAt:  lastSync,
 	}
 
 	if err := s.store.AddVersion(version); err != nil {
