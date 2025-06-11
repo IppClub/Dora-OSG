@@ -124,32 +124,19 @@ func (a *API) UpdateCache() error {
 		packageInfo := model.PackageInfo{
 			Name:    repo.Name,
 			URL:     repo.URL,
-			Version: make(map[string]*model.Version),
-		}
-
-		// Add latest version
-		if len(versions) > 0 {
-			latest := versions[0]
-			packageInfo.Latest = &model.Version{
-				File:      latest.ZipFile,
-				Size:      latest.Size,
-				Tag:       latest.Tag,
-				Commit:    latest.CommitHash,
-				Download:  a.getDownloadURL(latest.ZipFile),
-				UpdatedAt: latest.CreatedAt.Unix(),
-			}
+			Versions: make([]*model.Version, 0),
 		}
 
 		// Add all versions
 		for _, v := range versions {
-			packageInfo.Version[v.Tag] = &model.Version{
+			packageInfo.Versions = append(packageInfo.Versions, &model.Version{
 				File:      v.ZipFile,
 				Size:      v.Size,
 				Tag:       v.Tag,
 				Commit:    v.CommitHash,
 				Download:  a.getDownloadURL(v.ZipFile),
 				UpdatedAt: v.CreatedAt.Unix(),
-			}
+			})
 		}
 
 		packages = append(packages, packageInfo)

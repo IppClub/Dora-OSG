@@ -15,8 +15,7 @@ type RepoMeta struct {
 type PackageInfo struct {
 	Name    string     `json:"name"`
 	URL     string     `json:"url"`
-	Latest  *Version   `json:"latest"`
-	Version map[string]*Version `json:"version"` // 按标签索引的版本信息
+	Versions []*Version `json:"versions"` // 按标签索引的版本信息
 }
 
 // Version represents a specific version of a package
