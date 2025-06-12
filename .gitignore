@@ -37,4 +37,5 @@ config/config.yaml
 # Scripts
 build.sh
 upload.sh
+upload_config.sh
 build_linux.sh

@@ -53,27 +53,34 @@ nohup ./dora-osg > /dev/null 2>&1 &
 
 ## API 文档
 
-### 获取包列表
+### 获取所有包列表
 
 ```http
 GET /api/v1/packages
 ```
 
-### 获取包版本列表
+### 获取特定包版本列表
 
 ```http
 GET /api/v1/packages/{name}
 ```
 
-### 获取最新版本
+### 获取最新版本特定包下载地址
 
 ```http
 GET /api/v1/packages/{name}/latest
 ```
 
-### 触发同步
+### 获取包列表的版本号
 
 ```http
+GET /api/v1/package-list-version
+```
+
+### 触发同步
+
+```sh
+# 本地执行
 curl -X POST http://localhost:8866/admin/sync
 ```
 
