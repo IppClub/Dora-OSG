@@ -8,6 +8,8 @@ sync:
 
 # 仓库配置
 repos:
+  - name: "dora-example"
+    url:  "https://atomgit.com/ippclub/dora-example"
   - name: "dora-demo"
     url:  "https://atomgit.com/ippclub/dora-demo"
   - name: "dora-story"

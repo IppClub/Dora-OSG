@@ -1,5 +1,16 @@
 [
 	{
+		"name": "dora-example",
+		"title": {
+			"zh": "Dora 示例",
+			"en": "Dora Example"
+		},
+		"desc": {
+			"zh": "这个仓库包含 Dora SSR 开源游戏引擎 的功能示例、功能测试代码以及相关测试资源。",
+			"en": "This repository contains examples, test code, and test resources for the Dora SSR open-source game engine."
+		}
+	},
+	{
 		"name": "dora-demo",
 		"title": {
 			"zh": "Dora 演示",
