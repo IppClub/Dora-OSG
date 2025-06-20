@@ -45,9 +45,11 @@ func (s *SQLiteStore) Close() error {
 // UpsertRepo updates or inserts a repository record
 func (s *SQLiteStore) UpsertRepo(repo *model.DBRepo) error {
 	query := `
-		INSERT INTO repos (name, url, tag, last_sync, commit_hash, zip_file, size, updated_at)
-		VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+		INSERT INTO repos (name, url, sync, tag, last_sync, commit_hash, zip_file, size, updated_at)
+		VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
 		ON CONFLICT(name) DO UPDATE SET
+			url = excluded.url,
+			sync = excluded.sync,
 			tag = excluded.tag,
 			last_sync = excluded.last_sync,
 			commit_hash = excluded.commit_hash,
@@ -62,6 +64,7 @@ func (s *SQLiteStore) UpsertRepo(repo *model.DBRepo) error {
 		query,
 		repo.Name,
 		repo.URL,
+		repo.Sync,
 		repo.Tag,
 		repo.LastSync,
 		repo.CommitHash,
@@ -115,6 +118,7 @@ func (s *SQLiteStore) GetRepoByName(name string) (*model.DBRepo, error) {
 		&repo.ID,
 		&repo.Name,
 		&repo.URL,
+		&repo.Sync,
 		&repo.Tag,
 		&repo.LastSync,
 		&repo.CommitHash,
@@ -182,6 +186,7 @@ func (s *SQLiteStore) GetAllRepos() ([]*model.DBRepo, error) {
 			&repo.ID,
 			&repo.Name,
 			&repo.URL,
+			&repo.Sync,
 			&repo.Tag,
 			&repo.LastSync,
 			&repo.CommitHash,

@@ -42,7 +42,7 @@ func NewSyncService(cfg *config.Config, logger *zap.Logger) (*SyncService, error
 
 	// Initialize repositories
 	for _, repo := range cfg.Repos {
-		s.repos[repo.Name] = git.NewRepo(repo.Name, repo.URL, cfg.Storage.Path, repo.LFS, logger)
+		s.repos[repo.Name] = git.NewRepo(repo.Name, repo.URL, repo.Sync, cfg.Storage.Path, repo.LFS, logger)
 	}
 
 	return s, nil
@@ -167,6 +167,7 @@ func (s *SyncService) syncRepo(r *git.Repo) (error, bool) {
 	dbRepo := &model.DBRepo{
 		Name:       r.Name,
 		URL:        r.URL,
+		Sync:       r.Sync,
 		Tag:        tag,
 		LastSync:   lastSync,
 		CommitHash: commitHash,

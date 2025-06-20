@@ -9,6 +9,7 @@ type DBRepo struct {
 	ID         int64     `db:"id"`
 	Name       string    `db:"name"`
 	URL        string    `db:"url"`
+	Sync       string    `db:"sync"`
 	Tag        string    `db:"tag"`
 	LastSync   time.Time `db:"last_sync"`
 	CommitHash string    `db:"commit_hash"`
@@ -43,6 +44,7 @@ CREATE TABLE IF NOT EXISTS repos (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL UNIQUE,
     url TEXT NOT NULL,
+    sync TEXT NOT NULL,
     tag TEXT,
     last_sync TIMESTAMP NOT NULL,
     commit_hash TEXT NOT NULL,

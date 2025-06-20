@@ -1,5 +1,71 @@
 [
 	{
+		"name": "kewu-cyber-psychiatrist",
+		"title": {
+			"zh": "赛博通灵师",
+			"en": "Cyber Psychiatrist"
+		},
+		"desc": {
+			"zh": "大学毕业之后，继承了通灵师衣钵的成萧在高度发达的赛博朋克城市——鹿城中生活。这天，以往只能接些小单的他忽然收到一封来自中城区的信件，信上邀请他去为一个富家子弟招魂。成萧原以为这不过是一次普通的委托，却...",
+			"en": "After graduating from college, Cheng Xiao, who inherited the shaman's legacy, lives in the highly developed cyberpunk city of Luzhong. Today, the usual small orders he used to take suddenly received a letter from the central district, inviting him to summon a wealthy young man. Cheng Xiao originally thought this was just a normal assignment, but..."
+		}
+	},
+	{
+		"name": "zhanyang-xuanzhe",
+		"title": {
+			"zh": "《锦绣语幕：瓯越星图》",
+			"en": "The Embroidered Screen: The Star Map of Ouyue"
+		},
+		"desc": {
+			"zh": "在瓯越的千年针脚上，编织属于你的记忆图谱 当量子中心的蓝光湮灭在瓯江夜色，当数据洪流退去露出刻满针路簿的古老船舷 —— 欢迎来到《瓯绣针脚：记忆经纬》，一款将瓯越非遗技艺化作叙事密码的文字冒险游戏。",
+			"en": "On the thousand-year embroidery of Ouyue, weave your own memory map. When the blue light of the quantum center fades in the Ouyue night, and when the data flow recedes to reveal the ancient ship's side with countless needle routes —— welcome to 'The Embroidered Screen: The Star Map of Ouyue', a text adventure game that transforms the Ouyue intangible cultural heritage into narrative codes."
+		}
+	},
+	{
+		"name": "xiongbingfu-first-game",
+		"title": {
+			"zh": "防校园欺凌文字冒险小游戏",
+			"en": "Anti-bullying Text Adventure Game"
+		},
+		"desc": {
+			"zh": "本游戏聚焦于校园欺凌，包括了身体暴力型、言语羞辱型、社交排斥型、网络谣言、性别歧视、强迫型欺凌等六大场景，玩家需要扮演被欺凌对象，通过选择不同的选项来对抗欺凌者，走出阴影。",
+			"en": "This game focuses on school bullying, including six scenarios: physical violence, verbal humiliation, social exclusion, online rumors, gender discrimination, and coercion. Players take on the role of the victim of bullying and choose different options to fight back against the bully, breaking free from the shadow."
+		}
+	},
+	{
+		"name": "lweex999-bailuxianhua",
+		"title": {
+			"zh": "踏古寻今，白鹿归来",
+			"en": "Return of the White Deer"
+		},
+		"desc": {
+			"zh": "游戏改编了温州白鹿衔花的故事，你作为郭璞,面临着困难的建城，请解开时空的谜题，召唤白鹿吧。",
+			"en": "This game is adapted from the story of the White Deer of Wenzhou, you as Guo Pu, facing the difficult construction of the city, please solve the mystery of time and space, summon the white deer."
+		}
+	},
+	{
+		"name": "haiyangxing-haiyangxing",
+		"title": {
+			"zh": "睁越迷影（穿越瓯越大陆）",
+			"en": "Eyes Over the Ouyue Continent"
+		},
+		"desc": {
+			"zh": "作品构建了一个奇妙的瓯越冒险世界。主人公在瓯江、雁荡山历经重重挑战，与水鬼黑影、神秘怪物等斗智斗勇；或被困医院，穿梭于诡异走廊与神秘地下室，对抗幽灵等超自然威胁，破解三道商业谜题，激活瓯越商帮智慧，唤...",
+			"en": "This work creates a fascinating adventure world set in Ouyue. The protagonist faces numerous challenges along the Oujiang River and Yandang Mountains, outwitting water ghosts, dark shadows, and mysterious monsters. Sometimes trapped in a hospital, they navigate eerie corridors and secret basements, confronting ghosts and other supernatural threats. Solve three business puzzles, awaken the wisdom of the Ouyue merchant guild, and summon..."
+		}
+	},
+	{
+		"name": "richardwzu-dorabirdy",
+		"title": {
+			"zh": "小晶晶历险记之品鉴瓯越美食",
+			"en": "The Adventures of Little Crystal: Taste the Ouyue Cuisine"
+		},
+		"desc": {
+			"zh": "《瓯越美食大冒险》是一款基于 Dora-SSR 游戏引擎 开发的物理弹射类休闲游戏，融合了温州地方文化特色与经典愤怒小鸟玩法。玩家将扮演贪吃鬼晶晶的朋友，帮助他品尝各种正宗的瓯越美食！",
+			"en": "'Ouyue Food Adventure' is a casual physics-based slingshot game developed with the Dora-SSR game engine. It combines the local culture of Wenzhou with classic Angry Birds gameplay. Players take on the role of Little Crystal's friend, helping him taste a variety of authentic Ouyue delicacies!"
+		}
+	},
+	{
 		"name": "dora-example",
 		"title": {
 			"zh": "Dora 示例",

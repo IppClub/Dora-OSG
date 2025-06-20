@@ -30,6 +30,7 @@ type Sync struct {
 type Repo struct {
 	Name string `yaml:"name"`
 	URL  string `yaml:"url"`
+	Sync string `yaml:"sync"`
 	LFS  bool   `yaml:"lfs"`
 }
 

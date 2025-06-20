@@ -15,16 +15,18 @@ import (
 type Repo struct {
 	Name     string
 	URL      string
+	Sync     string
 	Path     string
 	LFS      bool
 	Logger   *zap.Logger
 }
 
 // NewRepo creates a new Repo instance
-func NewRepo(name, url, basePath string, lfs bool, logger *zap.Logger) *Repo {
+func NewRepo(name, url, sync, basePath string, lfs bool, logger *zap.Logger) *Repo {
 	return &Repo{
 		Name:   name,
 		URL:    url,
+		Sync:   sync,
 		Path:   filepath.Join(basePath, "repos", name),
 		LFS:    lfs,
 		Logger: logger,
@@ -134,7 +136,7 @@ func (r *Repo) openOrClone() (*git.Repository, error) {
 	if err == git.ErrRepositoryNotExists {
 		r.Logger.Info("cloning repository",
 			zap.String("name", r.Name),
-			zap.String("url", r.URL),
+			zap.String("sync", r.Sync),
 		)
 
 		// Create directory if it doesn't exist
@@ -144,7 +146,7 @@ func (r *Repo) openOrClone() (*git.Repository, error) {
 
 		// Clone the repository
 		repo, err = git.PlainClone(r.Path, false, &git.CloneOptions{
-			URL:      r.URL,
+			URL:      r.Sync,
 			Progress: os.Stdout,
 		})
 		if err != nil {
