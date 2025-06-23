@@ -3,7 +3,7 @@ module github.com/ippclub/dora-osg
 go 1.24.3
 
 require (
-	github.com/go-chi/chi/v5 v5.0.12
+	github.com/go-chi/chi/v5 v5.2.2
 	github.com/go-git/go-git/v5 v5.16.1
 	github.com/mattn/go-sqlite3 v1.14.28
 	go.uber.org/zap v1.27.0
