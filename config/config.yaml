@@ -1,0 +1,75 @@
+server:
+  port: 8866
+
+sync:
+  interval: 24h
+
+repos:
+  - name: "kewu-cyber-psychiatrist"
+    url:  "https://atomgit.com/kewu/Cyber_Psychiatrist"
+    sync: "https://atomgit.com/kewu/Cyber_Psychiatrist"
+    lfs: true
+
+  - name: "zhanyang-xuanzhe"
+    url: "https://atomgit.com/zhanyang/xuanzhe"
+    sync: "https://atomgit.com/zhanyang/xuanzhe"
+
+  - name: "xiongbingfu-first-game"
+    url: "https://atomgit.com/xiongbingfu/First-game"
+    sync: "https://atomgit.com/xiongbingfu/First-game"
+
+  - name: "lweex999-bailuxianhua"
+    url: "https://github.com/lweex999/bailuxianhua"
+    sync: "https://ghproxy.net/https://github.com/lweex999/bailuxianhua"
+
+  - name: "haiyangxing-haiyangxing"
+    url: "https://github.com/haiyangxing/haiyangxing"
+    sync: "https://atomgit.com/haiyangxing/haiyangxing"
+
+  - name: "richardwzu-dorabirdy"
+    url: "https://atomgit.com/richardwzu/dorabirdy"
+    sync: "https://atomgit.com/richardwzu/dorabirdy"
+
+  - name: "dora-example"
+    url:  "https://atomgit.com/ippclub/dora-example"
+    sync: "https://atomgit.com/ippclub/dora-example"
+
+  - name: "dora-demo"
+    url:  "https://atomgit.com/ippclub/dora-demo"
+    sync: "https://atomgit.com/ippclub/dora-demo"
+
+  - name: "dora-story"
+    url:  "https://atomgit.com/ippclub/dora-story"
+    sync: "https://atomgit.com/ippclub/dora-story"
+
+  - name: "lsd"
+    url:  "https://atomgit.com/ippclub/lsd"
+    sync: "https://atomgit.com/ippclub/lsd"
+
+  - name: "lsd-spine-1x"
+    url:  "https://atomgit.com/ippclub/lsd-spine-1x"
+    sync: "https://atomgit.com/ippclub/lsd-spine-1x"
+    lfs: true
+
+  - name: "lsd-spine-2x"
+    url:  "https://atomgit.com/ippclub/lsd-spine-2x"
+    sync: "https://atomgit.com/ippclub/lsd-spine-2x"
+    lfs: true
+
+storage:
+  path: ./data
+
+download:
+  base_url: http://localhost:8866
+
+rate_limit:
+  rps: 10
+  burst: 20
+
+log:
+  level: info
+  filename: ./logs/dora-osg.log
+  max_size: 10    # megabytes
+  max_backups: 10  # number of backups
+  max_age: 30      # days
+  compress: true   # compress rotated files

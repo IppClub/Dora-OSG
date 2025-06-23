@@ -32,7 +32,6 @@ Thumbs.db
 /data/
 /logs/
 !/data/assets/
-config/config.yaml
 
 # Scripts
 upload*.sh
