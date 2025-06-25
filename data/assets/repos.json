@@ -8,7 +8,8 @@
 		"desc": {
 			"zh": "大学毕业之后，继承了通灵师衣钵的成萧在高度发达的赛博朋克城市——鹿城中生活。这天，以往只能接些小单的他忽然收到一封来自中城区的信件，信上邀请他去为一个富家子弟招魂。成萧原以为这不过是一次普通的委托，却...",
 			"en": "After graduating from college, Cheng Xiao, who inherited the shaman's legacy, lives in the highly developed cyberpunk city of Luzhong. Today, the usual small orders he used to take suddenly received a letter from the central district, inviting him to summon a wealthy young man. Cheng Xiao originally thought this was just a normal assignment, but..."
-		}
+		},
+		"categories": ["Game", "温大-2025"]
 	},
 	{
 		"name": "zhanyang-xuanzhe",
@@ -19,7 +20,8 @@
 		"desc": {
 			"zh": "在瓯越的千年针脚上，编织属于你的记忆图谱 当量子中心的蓝光湮灭在瓯江夜色，当数据洪流退去露出刻满针路簿的古老船舷 —— 欢迎来到《瓯绣针脚：记忆经纬》，一款将瓯越非遗技艺化作叙事密码的文字冒险游戏。",
 			"en": "On the thousand-year embroidery of Ouyue, weave your own memory map. When the blue light of the quantum center fades in the Ouyue night, and when the data flow recedes to reveal the ancient ship's side with countless needle routes —— welcome to 'The Embroidered Screen: The Star Map of Ouyue', a text adventure game that transforms the Ouyue intangible cultural heritage into narrative codes."
-		}
+		},
+		"categories": ["Game", "温大-2025"]
 	},
 	{
 		"name": "xiongbingfu-first-game",
@@ -30,7 +32,8 @@
 		"desc": {
 			"zh": "本游戏聚焦于校园欺凌，包括了身体暴力型、言语羞辱型、社交排斥型、网络谣言、性别歧视、强迫型欺凌等六大场景，玩家需要扮演被欺凌对象，通过选择不同的选项来对抗欺凌者，走出阴影。",
 			"en": "This game focuses on school bullying, including six scenarios: physical violence, verbal humiliation, social exclusion, online rumors, gender discrimination, and coercion. Players take on the role of the victim of bullying and choose different options to fight back against the bully, breaking free from the shadow."
-		}
+		},
+		"categories": ["Game", "温大-2025"]
 	},
 	{
 		"name": "lweex999-bailuxianhua",
@@ -41,7 +44,8 @@
 		"desc": {
 			"zh": "游戏改编了温州白鹿衔花的故事，你作为郭璞,面临着困难的建城，请解开时空的谜题，召唤白鹿吧。",
 			"en": "This game is adapted from the story of the White Deer of Wenzhou, you as Guo Pu, facing the difficult construction of the city, please solve the mystery of time and space, summon the white deer."
-		}
+		},
+		"categories": ["Game", "温大-2025"]
 	},
 	{
 		"name": "haiyangxing-haiyangxing",
@@ -52,7 +56,8 @@
 		"desc": {
 			"zh": "作品构建了一个奇妙的瓯越冒险世界。主人公在瓯江、雁荡山历经重重挑战，与水鬼黑影、神秘怪物等斗智斗勇；或被困医院，穿梭于诡异走廊与神秘地下室，对抗幽灵等超自然威胁，破解三道商业谜题，激活瓯越商帮智慧，唤...",
 			"en": "This work creates a fascinating adventure world set in Ouyue. The protagonist faces numerous challenges along the Oujiang River and Yandang Mountains, outwitting water ghosts, dark shadows, and mysterious monsters. Sometimes trapped in a hospital, they navigate eerie corridors and secret basements, confronting ghosts and other supernatural threats. Solve three business puzzles, awaken the wisdom of the Ouyue merchant guild, and summon..."
-		}
+		},
+		"categories": ["Game", "温大-2025"]
 	},
 	{
 		"name": "richardwzu-dorabirdy",
@@ -63,7 +68,8 @@
 		"desc": {
 			"zh": "《瓯越美食大冒险》是一款基于 Dora-SSR 游戏引擎 开发的物理弹射类休闲游戏，融合了温州地方文化特色与经典愤怒小鸟玩法。玩家将扮演贪吃鬼晶晶的朋友，帮助他品尝各种正宗的瓯越美食！",
 			"en": "'Ouyue Food Adventure' is a casual physics-based slingshot game developed with the Dora-SSR game engine. It combines the local culture of Wenzhou with classic Angry Birds gameplay. Players take on the role of Little Crystal's friend, helping him taste a variety of authentic Ouyue delicacies!"
-		}
+		},
+		"categories": ["Game", "温大-2025"]
 	},
 	{
 		"name": "dora-example",
@@ -74,7 +80,8 @@
 		"desc": {
 			"zh": "这个仓库包含 Dora SSR 开源游戏引擎 的功能示例、功能测试代码以及相关测试资源。",
 			"en": "This repository contains examples, test code, and test resources for the Dora SSR open-source game engine."
-		}
+		},
+		"categories": ["Dora"]
 	},
 	{
 		"name": "dora-demo",
@@ -85,7 +92,8 @@
 		"desc": {
 			"zh": "这个仓库展示了使用 Dora SSR 开源游戏引擎创建的游戏演示。演示展示了使用 Dora SSR 可能实现的具体功能和技巧，帮助开发者学习和探索其能力。",
 			"en": "This repository showcases game demo created using the Dora SSR open-source game engine. Demo illustrates specific features and techniques possible with Dora SSR, helping developers learn and explore its capabilities."
-		}
+		},
+		"categories": ["Dora"]
 	},
 	{
 		"name": "dora-story",
@@ -96,7 +104,8 @@
 		"desc": {
 			"zh": "基于 Dora SSR 开发的可视化小说游戏框架。该框架集成了 Yarn Spinner 对话系统，并使用开源游戏《灵数奇缘》（Luv Sense Digital）的代码和授权艺术资产，为可视化小说游戏开发提供完整的解决方案。",
 			"en": "A visual novel game framework developed based on Dora SSR. This framework integrates the Yarn Spinner dialogue system and uses the open-source game '灵数奇缘' (Luv Sense Digital) code and authorized art assets, providing a complete solution for visual novel game development."
-		}
+		},
+		"categories": ["Dora"]
 	},
 	{
 		"name": "lsd",
@@ -107,7 +116,8 @@
 		"desc": {
 			"zh": "（开发中项目）在末日后，地面上一片焦土，幸存者人类苟延残喘活在地下。游戏公司为了解决冲突，开发了一款没有人能拒绝的沉浸式游戏。但这个游戏却是阴谋的起点，玩家进入游戏后很多年都不会回到现实社会。面对真正的苦难，游戏商喜闻乐见，他们的年轻人沉浸在虚拟的数字世界。而有一人看透了游戏公司的本质，他希望能改变这一切。运行项目需要额外下载 lsd-spine-1x 或是 lsd-spine-2x 动画文件一起使用。",
 			"en": "(In development project) In the post-apocalyptic world, the surface is a wasteland, and humans survive underground. The game company developed a game that no one could refuse to play. But this game is the starting point of the conspiracy. Players enter the game and many years later they will not return to the real world. The game company is happy to see the young people immersed in the virtual digital world. But there is one person who sees through the essence of the game company, and he hopes to change this. Running the project requires downloading lsd-spine-1x or lsd-spine-2x animation files."
-		}
+		},
+		"categories": ["Game"]
 	},
 	{
 		"name": "lsd-spine-1x",
@@ -118,7 +128,8 @@
 		"desc": {
 			"zh": "欢迎使用《灵数奇缘》游戏开发资源库！本仓库包含使用 Spine2D 动画编辑器创作的普通分辨率游戏开发资产，适用于需要较小文件大小的项目，例如移动游戏或性能受限的平台。",
 			"en": "Welcome to the Luv Sense Digital (LSD) Spine 1x game development resource library! This repository contains game development assets created using Spine2D Editor for normal resolution, suitable for projects requiring smaller file sizes, such as mobile games or platforms with performance limitations."
-		}
+		},
+		"categories": ["Asset"]
 	},
 	{
 		"name": "lsd-spine-2x",
@@ -129,6 +140,7 @@
 		"desc": {
 			"zh": "欢迎使用《灵数奇缘》游戏开发资源库！本仓库包含使用 Spine2D 动画编辑器创作的高分辨率游戏开发资产，适用于对图像质量有较高要求的项目，例如高端移动游戏、PC游戏或需要在大屏幕上展示的应用。",
 			"en": "Welcome to the Luv Sense Digital (LSD) Spine 2x game development resource library! This repository contains game development assets created using Spine2D Editor for high resolution, suitable for projects requiring high image quality, such as high-end mobile games, PC games, or applications that need to be displayed on large screens."
-		}
+		},
+		"categories": ["Asset"]
 	}
 ]
