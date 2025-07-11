@@ -269,10 +269,12 @@ func (a *API) triggerSync(w http.ResponseWriter, r *http.Request) {
 			a.logger.Error("manual sync failed", zap.Error(err))
 		} else {
 			a.logger.Info("manual sync completed successfully")
-			// Update cache after successful sync
-			if err := a.UpdateCache(); err != nil {
-				a.logger.Error("failed to update cache after sync", zap.Error(err))
-			}
+		}
+		// Update cache after sync
+		if err := a.UpdateCache(); err != nil {
+			a.logger.Error("failed to update cache after sync", zap.Error(err))
+		} else {
+			a.logger.Info("cache updated after sync")
 		}
 	}()
 
