@@ -56,6 +56,14 @@ func NewAPI(cfg *config.Config, logger *zap.Logger, syncService *service.SyncSer
 		logger.Error("failed to initialize cache", zap.Error(err))
 	}
 
+	syncService.SetOnSyncCallback(func() {
+		if err := api.UpdateCache(); err != nil {
+			logger.Error("failed to update cache after sync", zap.Error(err))
+		} else {
+			logger.Info("cache updated after sync")
+		}
+	})
+
 	return api, nil
 }
 
@@ -269,12 +277,6 @@ func (a *API) triggerSync(w http.ResponseWriter, r *http.Request) {
 			a.logger.Error("manual sync failed", zap.Error(err))
 		} else {
 			a.logger.Info("manual sync completed successfully")
-		}
-		// Update cache after sync
-		if err := a.UpdateCache(); err != nil {
-			a.logger.Error("failed to update cache after sync", zap.Error(err))
-		} else {
-			a.logger.Info("cache updated after sync")
 		}
 	}()
 
