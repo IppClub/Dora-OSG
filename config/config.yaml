@@ -23,7 +23,7 @@ repos:
     sync: "https://ghproxy.net/https://github.com/lweex999/bailuxianhua"
 
   - name: "haiyangxing-haiyangxing"
-    url: "https://github.com/haiyangxing/haiyangxing"
+    url: "https://atomgit.com/haiyangxing/haiyangxing"
     sync: "https://atomgit.com/haiyangxing/haiyangxing"
 
   - name: "richardwzu-dorabirdy"
