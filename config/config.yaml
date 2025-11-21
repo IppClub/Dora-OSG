@@ -5,55 +5,55 @@ sync:
   interval: 24h
 
 repos:
-  - name: "kewu-cyber-psychiatrist"
-    url:  "https://atomgit.com/kewu/Cyber_Psychiatrist"
-    sync: "https://atomgit.com/kewu/Cyber_Psychiatrist"
+  - name: "kewuuuu-cyber-psychiatrist"
+    url:  "https://gitcode.com/kewuuuu/Cyber_Psychiatrist"
+    sync: "https://gitcode.com/kewuuuu/Cyber_Psychiatrist"
     lfs: true
 
-  - name: "zhanyang-xuanzhe"
-    url: "https://atomgit.com/zhanyang/xuanzhe"
-    sync: "https://atomgit.com/zhanyang/xuanzhe"
+  - name: "zhanyang1-xuanzhe"
+    url: "https://gitcode.com/zhanyang1/xuanzhe"
+    sync: "https://gitcode.com/zhanyang1/xuanzhe"
 
   - name: "xiongbingfu-first-game"
-    url: "https://atomgit.com/xiongbingfu/First-game"
-    sync: "https://atomgit.com/xiongbingfu/First-game"
+    url: "https://gitcode.com/xiongbingfu/First-game"
+    sync: "https://gitcode.com/xiongbingfu/First-game"
 
   - name: "lweex999-bailuxianhua"
     url: "https://github.com/lweex999/bailuxianhua"
-    sync: "https://ghproxy.net/https://github.com/lweex999/bailuxianhua"
+    sync: "https://gh-proxy.com/https://github.com/lweex999/bailuxianhua"
 
-  - name: "haiyangxing-haiyangxing"
-    url: "https://atomgit.com/haiyangxing/haiyangxing"
-    sync: "https://atomgit.com/haiyangxing/haiyangxing"
+  - name: "haiyangxing4521-haiyangxing"
+    url: "https://gitcode.com/haiyangxing4521/haiyangxing"
+    sync: "https://gitcode.com/haiyangxing4521/haiyangxing"
 
-  - name: "richardwzu-dorabirdy"
-    url: "https://atomgit.com/richardwzu/dorabirdy"
-    sync: "https://atomgit.com/richardwzu/dorabirdy"
+  - name: "richardjiang213-dorabirdy"
+    url: "https://gitcode.com/richardjiang213/dorabirdy"
+    sync: "https://gitcode.com/richardjiang213/dorabirdy"
 
   - name: "dora-example"
-    url:  "https://atomgit.com/ippclub/dora-example"
-    sync: "https://atomgit.com/ippclub/dora-example"
+    url:  "https://gitcode.com/ippclub/dora-example"
+    sync: "https://gitcode.com/ippclub/dora-example"
 
   - name: "dora-demo"
-    url:  "https://atomgit.com/ippclub/dora-demo"
-    sync: "https://atomgit.com/ippclub/dora-demo"
+    url:  "https://gitcode.com/ippclub/dora-demo"
+    sync: "https://gitcode.com/ippclub/dora-demo"
 
   - name: "dora-story"
-    url:  "https://atomgit.com/ippclub/dora-story"
-    sync: "https://atomgit.com/ippclub/dora-story"
+    url:  "https://gitcode.com/ippclub/dora-story"
+    sync: "https://gitcode.com/ippclub/dora-story"
 
   - name: "lsd"
-    url:  "https://atomgit.com/ippclub/lsd"
-    sync: "https://atomgit.com/ippclub/lsd"
+    url:  "https://gitcode.com/ippclub/lsd"
+    sync: "https://gitcode.com/ippclub/lsd"
 
   - name: "lsd-spine-1x"
-    url:  "https://atomgit.com/ippclub/lsd-spine-1x"
-    sync: "https://atomgit.com/ippclub/lsd-spine-1x"
+    url:  "https://gitcode.com/ippclub/lsd-spine-1x"
+    sync: "https://gitcode.com/ippclub/lsd-spine-1x"
     lfs: true
 
   - name: "lsd-spine-2x"
-    url:  "https://atomgit.com/ippclub/lsd-spine-2x"
-    sync: "https://atomgit.com/ippclub/lsd-spine-2x"
+    url:  "https://gitcode.com/ippclub/lsd-spine-2x"
+    sync: "https://gitcode.com/ippclub/lsd-spine-2x"
     lfs: true
 
 storage:
