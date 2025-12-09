@@ -93,7 +93,8 @@
 			"zh": "这个仓库展示了使用 Dora SSR 开源游戏引擎创建的游戏演示。演示展示了使用 Dora SSR 可能实现的具体功能和技巧，帮助开发者学习和探索其能力。",
 			"en": "This repository showcases game demo created using the Dora SSR open-source game engine. Demo illustrates specific features and techniques possible with Dora SSR, helping developers learn and explore its capabilities."
 		},
-		"categories": ["Dora"]
+		"categories": ["Dora"],
+		"exe": ["AI Fighter", "Dismantlism", "Dodge the Creeps", "Involution Warrior", "Loli War", "Touch the Sky", "Zombie Escape"]
 	},
 	{
 		"name": "dora-story",
@@ -129,7 +130,8 @@
 			"zh": "欢迎使用《灵数奇缘》游戏开发资源库！本仓库包含使用 Spine2D 动画编辑器创作的普通分辨率游戏开发资产，适用于需要较小文件大小的项目，例如移动游戏或性能受限的平台。",
 			"en": "Welcome to the Luv Sense Digital (LSD) Spine 1x game development resource library! This repository contains game development assets created using Spine2D Editor for normal resolution, suitable for projects requiring smaller file sizes, such as mobile games or platforms with performance limitations."
 		},
-		"categories": ["Asset"]
+		"categories": ["Asset"],
+		"exe": false
 	},
 	{
 		"name": "lsd-spine-2x",
@@ -141,6 +143,343 @@
 			"zh": "欢迎使用《灵数奇缘》游戏开发资源库！本仓库包含使用 Spine2D 动画编辑器创作的高分辨率游戏开发资产，适用于对图像质量有较高要求的项目，例如高端移动游戏、PC游戏或需要在大屏幕上展示的应用。",
 			"en": "Welcome to the Luv Sense Digital (LSD) Spine 2x game development resource library! This repository contains game development assets created using Spine2D Editor for high resolution, suitable for projects requiring high image quality, such as high-end mobile games, PC games, or applications that need to be displayed on large screens."
 		},
-		"categories": ["Asset"]
+		"categories": ["Asset"],
+		"exe": false
+	},
+	{
+		"name": "zhanyang1-bridge",
+		"title": {
+			"zh": "桥：心渊摆渡",
+			"en": "Ferrying Across the Heart"
+		},
+		"desc": {
+			"zh": "万千破碎世界的哀嚎中，一个古老的声音选中了你。你将化身为「摆渡人」，在虚无与现实之间架起希望的桥梁。面对两个亟待拯救的世界：一边是病房中用蜡笔画桥的患病孩子，需要你用勇气之光重绘生命；另一边是镜廊中对峙的过去与未来自我，等待你用智慧调和信念的冲突。",
+			"en": "In the wailing of countless shattered worlds, an ancient voice has chosen you. You will become a 'ferryman', building a bridge of hope between nothingness and reality. Facing two worlds in desperate need of salvation: on one side, a sick child in a hospital room drawing bridges with crayons, needing you to redraw life with the light of courage; on the other side, past and future selves confronting each other in a mirror corridor, waiting for you to reconcile conflicts of belief with wisdom."
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "gcw_xNKflcGY-miss_meet_beside_the_bridge",
+		"title": {
+			"zh": "在桥边邂逅是否搞错了什么？",
+			"en": "Miss Meet Beside the Bridge"
+		},
+		"desc": {
+			"zh": "这是一款文字冒险类游戏，百合向galgame，你将扮演一个面临高考压力的美少女高三生，面对现实压力无法忍受而灵魂解离（灵魂出窍），到底如何选择才能架起与现实世界和解的桥梁？ 操作说明：使用你的鼠标进行抉择把喵",
+			"en": "This is a text adventure game, a yuri galgame. You will play as a beautiful high school senior girl facing college entrance exam pressure. Unable to bear the pressure of reality, her soul separates (soul leaves the body). What choices must be made to build a bridge of reconciliation with the real world? Instructions: Use your mouse to make choices."
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "haiyangxing4521-kayingbei",
+		"title": {
+			"zh": "雾桥之旅",
+			"en": "Mistbound Odyssey"
+		},
+		"desc": {
+			"zh": "初一雾起，桥渡异世；摆渡人摇桨，雾桥连过往，跟着主人公一起化身为守桥人、护村后生、魔法行者，在无数个世界中，解开羁绊，续写传奇……这是像素大作战团队制作的一款文字冒险游戏，带你领会在雾桥的联通下，无数个世界的不同风采。",
+			"en": "On the first day of the month, mist rises, and bridges cross to other worlds. The ferryman rows, mist bridges connect the past. Follow the protagonist as they transform into bridge keepers, village protectors, and magic walkers, unraveling bonds and continuing legends across countless worlds... This is a text adventure game made by the Pixel Battle team, taking you to experience the different charms of countless worlds connected by mist bridges."
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "chenshian1-Disaligned_Harmony",
+		"title": {
+			"zh": "交错的和谐",
+			"en": "Disaligned Harmony"
+		},
+		"desc": {
+			"zh": "罕见病患者的世界也是有色彩的，与我们正常人并无什么不同，但是他们因为不同的原因与我们正常生活有了距离，所以我们需要协助建立起他们与正常世界的桥梁。在这个游戏中，玩家能做的只是很简单的动作，但是这些简单的动作汇集起来却可以成为一座坚实的桥梁。玩家使用WASD移动，地图被土地分隔开来，土地中间存在有空隙，玩家需要把地图上两个的砖块拼在一起成2*2的桥梁填进空隙中，方可完成建造桥梁的任务。",
+			"en": "The world of rare disease patients also has color, no different from us normal people, but they have distance from our normal lives for different reasons, so we need to help build a bridge between them and the normal world. In this game, players can only do very simple actions, but these simple actions together can become a solid bridge. Players use WASD to move, the map is separated by land, there are gaps in the middle of the land, players need to combine two bricks on the map into a 2*2 bridge to fill the gap, then complete the bridge building task."
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "X_xiaomi-Bridge_to_Hope",
+		"title": {
+			"zh": "喂！小孩",
+			"en": "Bridge to Hope"
+		},
+		"desc": {
+			"zh": "故事发生在 公元4035年。人类文明高度发达，但生态环境遭到毁灭性破坏，许多孩子因此患上了各种先天性疾病（ALS, SMA等）。政府建立了\"希望之地\"来收容治疗这些孩子。 你扮演一名普通的\"打工人\"，因突发的环境灾害导致公司停工放假30天。受公司总管指派，你必须在这30天内照顾一名来自\"希望之地\"的男孩——莫提。",
+			"en": "The story takes place in 4035 AD. Human civilization is highly developed, but the ecological environment has been catastrophically destroyed, and many children have developed various congenital diseases (ALS, SMA, etc.). The government established 'Hope Land' to house and treat these children. You play as an ordinary 'worker' whose company shuts down for 30 days due to sudden environmental disasters. Assigned by the company manager, you must care for a boy from 'Hope Land' named Moti during these 30 days."
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "gcw_XxnwBoYE-dora-story",
+		"title": {
+			"zh": "回忆的彼方",
+			"en": "Beyond Memories"
+		},
+		"desc": {
+			"zh": "本游戏以「桥」为核心主题，采用治愈系文字冒险游戏的形式，讲述了男主清川在失去工作后进入自己的梦境，通过亲情、友情和恋情的羁绊重新找回了记忆的故事。玩家通过选择影响剧情的走向，整体画风清新柔和，操作简单易上手。本游戏主要聚焦点是在现代社会的冷漠和工作压力面前，人与人之间温情的可贵。",
+			"en": "This game takes 'bridge' as its core theme, using a healing text adventure game format. It tells the story of the male protagonist Qingchuan who enters his dreams after losing his job, and regains his memories through bonds of family, friendship, and love. Players influence the plot through choices. The overall art style is fresh and soft, with simple and easy-to-use controls. The game focuses on the preciousness of warmth between people in the face of modern society's indifference and work pressure."
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "kayingbei-Temporal-Bridge",
+		"title": {
+			"zh": "时空之桥",
+			"en": "Temporal Bridge"
+		},
+		"desc": {
+			"zh": "《时空之桥》是一个关于两个不同时空时间线重叠而展开的文字冒险游戏原型。当两个平行世界因某种未知力量发生碰撞，时空开始重叠纠缠，那些拥有相同经历但走向不同性格的人，将因同步率最高而最先相遇。在这个充满未知与可能性的交汇点，两个世界的命运交织在一起，最终，其中一方将救赎另一方。",
+			"en": "'Temporal Bridge' is a text adventure game prototype about two different time-space timelines overlapping. When two parallel worlds collide due to some unknown force, time and space begin to overlap and entangle. Those with the same experiences but different personalities will meet first due to the highest synchronization rate. At this intersection full of unknowns and possibilities, the fates of two worlds intertwine, and ultimately, one will redeem the other."
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "gcw_5rS445kF-assis",
+		"title": {
+			"zh": "围城",
+			"en": "Fortress Besieged"
+		},
+		"desc": {
+			"zh": "主角【浮生】进入了一个奇怪的世界。这个世界似乎被诡异的规则所笼罩：规定必须说出口的誓词、空无一人却又感觉人满为患的房间、晚上传来的脚步声以及每三天一次的探望日。种种诡异迹象让他认为这不是一个真实世界。他不记得自己的名字，也不记得自己为什么会来到这里。当收集到了一切线索，终于找到真相，离开还是留下，究竟要做何选择呢？",
+			"en": "The protagonist [Fusheng] enters a strange world. This world seems to be shrouded in bizarre rules: vows that must be spoken aloud, rooms that are empty yet feel crowded, footsteps heard at night, and visiting days every three days. These strange signs make him believe this is not a real world. He doesn't remember his name, nor why he came here. When all clues are collected and the truth is finally found, should he leave or stay? What choice should be made?"
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "santiko_e-myprogram",
+		"title": {
+			"zh": "我们这一家",
+			"en": "Our Family"
+		},
+		"desc": {
+			"zh": "这是一个在末日之下的世界，大部分陆地被海水淹没，仅存的岛屿各自为战……少女I从实验室醒来，家人，人类的未来，究竟怎样的选择才是正确的？",
+			"en": "This is a world under apocalypse, most of the land is submerged by seawater, and the remaining islands fight each other... Girl I wakes up from the laboratory. Family, the future of humanity, what choice is correct?"
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "kayingbei-zootopia2_invisible-scars_project",
+		"title": {
+			"zh": "隐形裂痕",
+			"en": "Invisible Scars"
+		},
+		"desc": {
+			"zh": "作为《疯狂动物城》的同人文字冒险游戏，《疯狂动物城：隐形裂痕》试图延续首部\"打破偏见\"的核心精神，以更深刻的社会议题为切入点，聚焦动物城乌托邦下被忽视的边缘群体困境。",
+			"en": "As a fan-made text adventure game of 'Zootopia', 'Zootopia: Invisible Scars' attempts to continue the core spirit of 'breaking prejudice' from the first film, using deeper social issues as entry points, focusing on the plight of marginalized groups ignored under Zootopia's utopia."
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "2303_80130546-yuqiao",
+		"title": {
+			"zh": "语桥",
+			"en": "Yu Qiao"
+		},
+		"desc": {
+			"zh": "听障画家陈默能\"看见\"声音的颜色，遇见了寻找\"寂静中雨声\"的配音师苏雨。两人通过创作\"色彩乐谱\"，在声音与色彩之间建起一座感知之桥。游戏以视觉小说形式呈现，结合水彩美术、氛围音乐与轻互动，邀请玩家成为每个故事的见证者与共建者。",
+			"en": "Deaf painter Chen Mo can 'see' the colors of sounds and meets voice actor Su Yu who is searching for 'the sound of rain in silence'. The two build a bridge of perception between sound and color through creating 'color scores'. The game is presented in visual novel format, combining watercolor art, atmospheric music, and light interaction, inviting players to become witnesses and co-creators of each story."
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "RtCt-firstgame",
+		"title": {
+			"zh": "在今日，聆听你昨天未能说出的话语",
+			"en": "Yesterday's Unspoken Words"
+		},
+		"desc": {
+			"zh": "一款视觉小说游戏，讲述了几位少年少女相遇，寻找往日事件的真相，逐渐破除昔日与亲友之间隔阂的故事。",
+			"en": "A visual novel game that tells the story of several young boys and girls meeting, searching for the truth of past events, and gradually breaking down barriers with friends and family from the past."
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "codenoobsad-kayingbei",
+		"title": {
+			"zh": "推箱为桥",
+			"en": "Push to Bridge"
+		},
+		"desc": {
+			"zh": "一款以\"推箱子搭桥\"为核心创意的解谜游戏。 你身处被水域分隔的孤岛，只能依靠箱子前进—— 将箱子推入水中， 亲手设计一条条\"由箱子组成的桥\"。",
+			"en": "A puzzle game with 'pushing boxes to build bridges' as its core creative concept. You are on an isolated island separated by water, and can only advance by relying on boxes—push boxes into the water, and personally design bridges made of boxes."
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "DLuoys-MemoryBridge_TheWayBack",
+		"title": {
+			"zh": "忆桥·归途",
+			"en": "Memory Bridge: The Way Back"
+		},
+		"desc": {
+			"zh": "这是一款以\"牺牲与救赎\"为核心的剧情向硬核平台跳跃游戏。玩家扮演一名守护者，需带领一位失忆的灵魂穿越充满陷阱与危机的梦境世界，通过收集七块\"记忆碎片\"来找回过往然后一同回家。",
+			"en": "This is a story-driven hardcore platform jumping game centered on 'sacrifice and redemption'. Players play as a guardian who must lead an amnesiac soul through a dream world full of traps and dangers, collecting seven 'memory fragments' to recover the past and return home together."
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "zzh31-heart_bridge2",
+		"title": {
+			"zh": "心桥",
+			"en": "Heart Bridge"
+		},
+		"desc": {
+			"zh": "多元化的内容，包含剧情、打怪、科普等元素。《心桥》是一款融合心理隐喻与人文关怀的互动文字冒险游戏。高中生小星因一场意外闯入神秘的\"心象岛\"，被迫踏上一座被浓雾笼罩的木桥。为回到现实，他必须穿越五座象征内心困境的桥梁，面对由恐惧、孤独与误解所化成的怪物。",
+			"en": "Diverse content including story, monster fighting, and popular science elements. 'Heart Bridge' is an interactive text adventure game that combines psychological metaphors with humanistic care. High school student Xiaoxing accidentally enters the mysterious 'Heart Image Island' and is forced to step onto a wooden bridge shrouded in thick fog. To return to reality, he must cross five bridges symbolizing inner struggles, facing monsters formed from fear, loneliness, and misunderstanding."
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "gcw_IG3mXl7x-bridge_link_dream",
+		"title": {
+			"zh": "桥络织梦",
+			"en": "Bridge Link Dream"
+		},
+		"desc": {
+			"zh": "这是一款以\"找寻自我\"贯彻全篇的剧情向机关解谜游戏，在游戏中，玩家需要扮演身存心死的主角，在游戏的过程中不断进行机关解谜等操作来通关关卡，从而找寻并补完自我。游戏特色为\"桥络\"：主角具备看出事物之间联系的能力，在游戏中，主角可以通过与场景物体互动，从而\"看到\"物体上的桥络并使其与他物进行联系来触发机关来使自己能够通过关卡。",
+			"en": "This is a story-driven puzzle game with 'finding oneself' as the theme throughout. In the game, players need to play as a protagonist who is physically alive but spiritually dead, continuously solving puzzles and mechanisms to pass levels, thus finding and completing oneself. The game's feature is 'bridge connection': the protagonist has the ability to see connections between things. In the game, the protagonist can interact with scene objects to 'see' the bridge connections on objects and connect them with other things to trigger mechanisms and pass levels."
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "gcw_CWynEasC-onge-project",
+		"title": {
+			"zh": "心桥纪元",
+			"en": "Heart Bridge Era"
+		},
+		"desc": {
+			"zh": "以\"心桥崩塌、仙途断绝\"的上古修仙世界观为核心，聚焦 \"修心即修仙\" 的主题而开发的轻量化文字修仙养成类开源游戏。",
+			"en": "A lightweight text-based cultivation and nurturing open-source game developed with the core of an ancient cultivation world view where 'heart bridges collapse and immortal paths are cut off', focusing on the theme of 'cultivating the heart is cultivating immortality'."
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "gcw_YbHGJ8uX-BridgeMemory",
+		"title": {
+			"zh": "记忆断桥症",
+			"en": "Bridge Memory"
+		},
+		"desc": {
+			"zh": "精神研究所所长\"云忆\"在进行\"精神连接实验\"时，意外触发病症，彻底遗忘了\"桥\"字及其意义。她回到荒凉破败的故乡\"断桥镇\"，发现石桥早已坍塌，居民也遗忘了桥的名字与历史，印证了病症正在蔓延。最终，云忆与林知合二为一，通过二次实验重构\"原初之桥\"，将其化为存在于所有人意识中的\"云桥\"。",
+			"en": "The director of the Mental Research Institute, 'Yunyi', accidentally triggers a condition during a 'mental connection experiment', completely forgetting the word 'bridge' and its meaning. She returns to her desolate and dilapidated hometown 'Broken Bridge Town', discovering that the stone bridge has long collapsed, and residents have also forgotten the bridge's name and history, confirming that the condition is spreading. Finally, Yunyi and Linzhi merge into one, reconstructing the 'Primordial Bridge' through a second experiment, transforming it into a 'Cloud Bridge' that exists in everyone's consciousness."
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "oneday12-firstgame",
+		"title": {
+			"zh": "网桥",
+			"en": "Net Bridge"
+		},
+		"desc": {
+			"zh": "故事参考了以前我朋友的故事，我也是经过他的视角才看见了隐藏的一面，原世界没有霸凌吧。",
+			"en": "The story is based on a friend's story from before. I also saw the hidden side through his perspective. The original world had no bullying."
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "kayingbei-Intersection",
+		"title": {
+			"zh": "交汇",
+			"en": "Intersection"
+		},
+		"desc": {
+			"zh": "游戏中，你将扮演一位前往幻想城市 LAS 休假的旅客，体验当地盛会\"创作节\"的氛围，并发掘多年前的创作节上，关于一位创作者的故事。",
+			"en": "In the game, you will play as a tourist visiting the fantasy city LAS for vacation, experiencing the atmosphere of the local festival 'Creation Festival', and discovering the story of a creator from the Creation Festival many years ago."
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "ww_666-gamebendi_9230",
+		"title": {
+			"zh": "日光桥",
+			"en": "Sunshine Bridge"
+		},
+		"desc": {
+			"zh": "讲述了超级E人夏菊和患光敏感型皮肤异色症罕见病I人相遇相识的故事，两人因植物结缘，在阳光与阴影的边界中体会不同的感受，形成友谊的桥梁。",
+			"en": "Tells the story of super extrovert Xiaoju and an introvert with photosensitive skin heterochromia rare disease meeting and getting to know each other. The two are connected by plants, experiencing different feelings at the boundary between sunlight and shadow, forming a bridge of friendship."
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "spadellllll-Metanoia",
+		"title": {
+			"zh": "渡我",
+			"en": "Metanoia"
+		},
+		"desc": {
+			"zh": "一款基于文本的游戏，包含心理恐怖、精神分析以及一点哲学元素。",
+			"en": "A text-based game containing psychological horror, psychoanalysis, and some philosophical elements."
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "wangyue789-redemption_of_guirenqiao",
+		"title": {
+			"zh": "归人桥救赎录",
+			"en": "Redemption of Guirenqiao"
+		},
+		"desc": {
+			"zh": "\"你站在桥上看湖水，水里的人在湖中看你\" 游戏里存在两个平行世界： \"桥上\"：正常世界，普通的人群 \"水中\"：水下世界。患有罕见病且不被理解的人群，在正常世界遭受欺凌，偏见，屈辱后，丧失希望，落入\"水中\"；转而对正常世界充满怨念。他们能够看见正常世界，会尽可能地拉正常世界的人\"下水\"。",
+			"en": "'You stand on the bridge watching the lake water, people in the water watch you in the lake.' The game has two parallel worlds: 'On the Bridge': the normal world, ordinary people. 'In the Water': the underwater world. People with rare diseases who are not understood, after suffering bullying, prejudice, and humiliation in the normal world, lose hope and fall into 'the water'; then become full of resentment toward the normal world. They can see the normal world and will try to pull people from the normal world 'into the water' as much as possible."
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "xuwangjing3419-memory_bridge",
+		"title": {
+			"zh": "记忆之桥",
+			"en": "Bridge of Memory"
+		},
+		"desc": {
+			"zh": "你睁开眼，发现自己躺在一座石桥的桥头。 石砖冰凉，青苔湿润。 桥的另一端笼罩在浓厚的薄雾中，仿佛通往某个被遗忘的时空。 你坐起身，揉了揉眼睛。你睁开眼，发现自己躺在一座石桥的桥头。 石砖冰凉，青苔湿润。 桥的另一端笼罩在浓厚的薄雾中，仿佛通往某个被遗忘的时空。 你坐起身，揉了揉眼睛。桥上站着一位老人。 他背对着你，望着桥下流淌的河水，一动不动，像一尊雕像……",
+			"en": "You open your eyes and find yourself lying at the head of a stone bridge. The stone bricks are cold, the moss is damp. The other end of the bridge is shrouded in thick mist, as if leading to some forgotten time and space. You sit up and rub your eyes. You open your eyes and find yourself lying at the head of a stone bridge. The stone bricks are cold, the moss is damp. The other end of the bridge is shrouded in thick mist, as if leading to some forgotten time and space. You sit up and rub your eyes. An old man stands on the bridge. He has his back to you, looking at the flowing river under the bridge, motionless, like a statue..."
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "Obscure4316-Demo_v0.0.1beta",
+		"title": {
+			"zh": "断裂之诗",
+			"en": "Ballad of the Fractured"
+		},
+		"desc": {
+			"zh": "远古时代，\"筑桥人\"文明如星辰般璀璨。他们领悟到世界的本质在于\"连接\"——山河、时空、记忆、人心，皆由无形的纽带维系。于是他们倾尽智慧，筑起一座座奇迹之桥。这些桥梁不仅是道路，更是调节自然律动、编织万物流转的导管。而一切的核心，是悬浮于世界中心的心桥，一座由纯粹情感能量凝结而成的虹光建筑，温柔地脉动着，守护着整个世界的平衡。",
+			"en": "In ancient times, the 'Bridge Builders' civilization was as brilliant as stars. They understood that the essence of the world lies in 'connection'—mountains and rivers, time and space, memories, and human hearts are all maintained by invisible bonds. So they devoted all their wisdom to building miraculous bridges. These bridges are not only roads but also conduits that regulate the rhythm of nature and weave the flow of all things. At the core of everything is the Heart Bridge suspended at the center of the world, a rainbow-colored structure condensed from pure emotional energy, gently pulsating, guarding the balance of the entire world."
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "LimitlessInfinity-demo1",
+		"title": {
+			"zh": "支点",
+			"en": "Fulcrum"
+		},
+		"desc": {
+			"zh": "主角二人之间的承诺如同桥梁将本已分道扬镳二人的世界再度连接，现实中的桥也见证了二人由小到大的爱情长跑。在时间无垠的荒原上，两个孩子的承诺，和他们追赶幸福的一生。",
+			"en": "The promise between the two protagonists is like a bridge that reconnects the worlds of two people who had already parted ways. The bridge in reality also witnesses their love marathon from childhood to adulthood. On the boundless wasteland of time, the promise of two children, and their lifetime of chasing happiness."
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "Loongly_Man-firstgame",
+		"title": {
+			"zh": "三生桥",
+			"en": "Tri-Span Reincarnation"
+		},
+		"desc": {
+			"zh": "你需要运用你超凡脱俗的能力，在不断的轮回中为渐冻症找到一个完美的答案。这个故事尝试融合中医哲思与现代科研，以跨越时空的坚守为脉络，勾勒爱与生命的深层联结。唯有爱是跨越时空的桥梁，是疾病与健康之间的桥梁，是罕见病人与正常人之间理解与共生的桥梁，更是中西医、科研与生命之间，那些无形却坚韧的联结之桥。",
+			"en": "You need to use your extraordinary abilities to find a perfect answer for ALS in constant reincarnations. This story attempts to blend traditional Chinese medicine philosophy with modern scientific research, using persistence across time and space as the thread, outlining the deep connection between love and life. Only love is the bridge across time and space, the bridge between disease and health, the bridge of understanding and symbiosis between rare disease patients and normal people, and even more, the invisible yet resilient connecting bridges between Chinese and Western medicine, scientific research and life."
+		},
+		"categories": ["Game", "卡赢-2025"]
+	},
+	{
+		"name": "Catalan1906-kaying_bridge",
+		"title": {
+			"zh": "桥之彼端的故事",
+			"en": "Tales from the Bridge's End"
+		},
+		"desc": {
+			"zh": "超超超短篇文字小游戏♪ 在这里，你将扮演一名在一家（神秘？）医院临时工作的志愿者，在温馨的日常中，探索这里的（恐怖真相？）温暖故事！这里，你的选择可能会引领你到三个结局, 欢迎大家前来探索~",
+			"en": "An ultra-ultra-short text mini-game♪ Here, you will play as a volunteer temporarily working at a (mysterious?) hospital, exploring the (horrifying truth?) warm stories here in the cozy daily life! Here, your choices may lead you to three endings. Welcome everyone to explore~"
+		},
+		"categories": ["Game", "卡赢-2025"]
 	}
 ]

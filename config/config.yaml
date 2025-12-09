@@ -7,7 +7,7 @@ sync:
 repos:
   - name: "kewuuuu-cyber-psychiatrist"
     url:  "https://gitcode.com/kewuuuu/Cyber_Psychiatrist"
-    sync: "https://gitcode.com/kewuuuu/Cyber_Psychiatrist"
+    sync: "https://gitcode.com/LiJinLiJin/Cyber_Psychiatrist"
     lfs: true
 
   - name: "zhanyang1-xuanzhe"
@@ -55,6 +55,120 @@ repos:
     url:  "https://gitcode.com/ippclub/lsd-spine-2x"
     sync: "https://gitcode.com/ippclub/lsd-spine-2x"
     lfs: true
+
+  - name: "zhanyang1-bridge"
+    url:  "https://gitcode.com/zhanyang1/bridge"
+    sync: "https://gitcode.com/zhanyang1/bridge"
+
+  - name: "gcw_xNKflcGY-miss_meet_beside_the_bridge"
+    url:  "https://gitcode.com/gcw_xNKflcGY/miss_meet_beside_the_bridge"
+    sync: "https://gitcode.com/gcw_xNKflcGY/miss_meet_beside_the_bridge"
+
+  - name: "haiyangxing4521-kayingbei"
+    url:  "https://gitcode.com/haiyangxing4521/kayingbei"
+    sync: "https://gitcode.com/haiyangxing4521/kayingbei"
+
+  - name: "chenshian1-Disaligned_Harmony"
+    url:  "https://gitcode.com/chenshian1/Disaligned_Harmony"
+    sync: "https://gitcode.com/chenshian1/Disaligned_Harmony"
+
+  - name: "X_xiaomi-Bridge_to_Hope"
+    url:  "https://gitcode.com/X_xiaomi/Bridge_to_Hope"
+    sync: "https://gitcode.com/X_xiaomi/Bridge_to_Hope"
+
+  - name: "gcw_XxnwBoYE-dora-story"
+    url:  "https://gitcode.com/gcw_XxnwBoYE/dora-story"
+    sync: "https://gitcode.com/gcw_XxnwBoYE/dora-story"
+
+  - name: "kayingbei-Temporal-Bridge"
+    url:  "https://gitcode.com/kayingbei/Temporal-Bridge"
+    sync: "https://gitcode.com/kayingbei/Temporal-Bridge"
+
+  - name: "gcw_5rS445kF-assis"
+    url:  "https://gitcode.com/gcw_5rS445kF/assis"
+    sync: "https://gitcode.com/gcw_5rS445kF/assis"
+
+  - name: "santiko_e-myprogram"
+    url:  "https://gitcode.com/santiko_e/myprogram"
+    sync: "https://gitcode.com/santiko_e/myprogram"
+
+  - name: "kayingbei-zootopia2_invisible-scars_project"
+    url:  "https://gitcode.com/kayingbei/zootopia2_invisible-scars_project"
+    sync: "https://gitcode.com/kayingbei/zootopia2_invisible-scars_project"
+
+  - name: "2303_80130546-yuqiao"
+    url:  "https://gitcode.com/2303_80130546/yuqiao"
+    sync: "https://gitcode.com/2303_80130546/yuqiao"
+
+  - name: "RtCt-firstgame"
+    url:  "https://gitcode.com/RtCt/firstgame"
+    sync: "https://gitcode.com/RtCt/firstgame"
+
+  - name: "codenoobsad-kayingbei"
+    url:  "https://gitcode.com/codenoobsad/kayingbei"
+    sync: "https://gitcode.com/codenoobsad/kayingbei"
+
+  - name: "DLuoys-MemoryBridge_TheWayBack"
+    url:  "https://gitcode.com/DLuoys/MemoryBridge_TheWayBack"
+    sync: "https://gitcode.com/DLuoys/MemoryBridge_TheWayBack"
+
+  - name: "zzh31-heart_bridge2"
+    url:  "https://gitcode.com/zzh31/heart_bridge2"
+    sync: "https://gitcode.com/zzh31/heart_bridge2"
+    lfs: true
+
+  - name: "gcw_IG3mXl7x-bridge_link_dream"
+    url:  "https://gitcode.com/gcw_IG3mXl7x/bridge_link_dream"
+    sync: "https://gitcode.com/gcw_IG3mXl7x/bridge_link_dream"
+
+  - name: "gcw_CWynEasC-onge-project"
+    url:  "https://gitcode.com/gcw_CWynEasC/onge-project"
+    sync: "https://gitcode.com/gcw_CWynEasC/onge-project"
+
+  - name: "gcw_YbHGJ8uX-BridgeMemory"
+    url:  "https://gitcode.com/gcw_YbHGJ8uX/BridgeMemory"
+    sync: "https://gitcode.com/gcw_YbHGJ8uX/BridgeMemory"
+
+  - name: "oneday12-firstgame"
+    url:  "https://gitcode.com/oneday12/firstgame"
+    sync: "https://gitcode.com/oneday12/firstgame"
+
+  - name: "kayingbei-Intersection"
+    url:  "https://gitcode.com/kayingbei/Intersection"
+    sync: "https://gitcode.com/kayingbei/Intersection"
+
+  - name: "ww_666-gamebendi_9230"
+    url:  "https://gitcode.com/ww_666/gamebendi_9230"
+    sync: "https://gitcode.com/ww_666/gamebendi_9230"
+
+  - name: "spadellllll-Metanoia"
+    url:  "https://gitcode.com/spadellllll/Metanoia"
+    sync: "https://gitcode.com/spadellllll/Metanoia"
+
+  - name: "wangyue789-redemption_of_guirenqiao"
+    url:  "https://gitcode.com/wangyue789/redemption_of_guirenqiao"
+    sync: "https://gitcode.com/wangyue789/redemption_of_guirenqiao"
+    lfs: true
+
+  - name: "xuwangjing3419-memory_bridge"
+    url:  "https://gitcode.com/xuwangjing3419/memory_bridge"
+    sync: "https://gitcode.com/xuwangjing3419/memory_bridge"
+
+  - name: "Obscure4316-Demo_v0.0.1beta"
+    url:  "https://gitcode.com/Obscure4316/Demo_v0.0.1beta"
+    sync: "https://gitcode.com/Obscure4316/Demo_v0.0.1beta"
+
+  - name: "LimitlessInfinity-demo1"
+    url:  "https://gitcode.com/LimitlessInfinity/demo1"
+    sync: "https://gitcode.com/LimitlessInfinity/demo1"
+
+  - name: "Loongly_Man-firstgame"
+    url:  "https://gitcode.com/Loongly_Man/firstgame"
+    sync: "https://gitcode.com/Loongly_Man/firstgame"
+
+  - name: "Catalan1906-kaying_bridge"
+    url:  "https://gitcode.com/Catalan1906/kaying_bridge"
+    sync: "https://gitcode.com/Catalan1906/kaying_bridge"
 
 storage:
   path: ./data
