@@ -29,9 +29,10 @@ go.work
 Thumbs.db
 
 # Project specific
-/data/
-/logs/
-!/data/assets/
+data/repos
+data/*.db
+data/zips
+logs/
 
 # Scripts
 upload*.sh
