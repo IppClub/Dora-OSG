@@ -20,7 +20,10 @@ type Config struct {
 }
 
 type Server struct {
-	Port int `yaml:"port"`
+	Port     int    `yaml:"port"`
+	EnableHTTPS bool   `yaml:"enable_https"`
+	CertFile  string `yaml:"cert_file"`
+	KeyFile   string `yaml:"key_file"`
 }
 
 type Sync struct {

@@ -7,6 +7,7 @@
 - 周期性同步 Git 仓库
 - 自动打包为 zip 文件
 - RESTful API 接口
+- HTTPS 支持（SSL/TLS）
 - 限流与 DDoS 防护
 - 监控与日志
 
@@ -88,12 +89,37 @@ curl -X POST http://localhost:8866/admin/sync
 
 配置文件 `config.yaml` 包含以下主要配置项：
 
+- `server`: 服务器配置（端口、HTTPS等）
 - `sync`: 同步配置
 - `repos`: 仓库列表
 - `storage`: 存储配置
 - `download`: 下载配置
 - `rate_limit`: 限流配置
 - `log`: 日志配置
+
+### HTTPS 配置
+
+服务支持HTTPS，需要在配置文件中启用并配置SSL证书：
+
+```yaml
+server:
+  port: 8866
+  enable_https: true
+  cert_file: /path/to/cert.pem
+  key_file: /path/to/key.pem
+
+download:
+  base_url: https://your-domain.com:8866
+```
+
+**获取SSL证书的方法：**
+
+1. **生产环境**：使用 Let's Encrypt（免费，推荐）
+   
+2. **开发测试**：使用自签名证书
+   ```bash
+   ./scripts/generate-self-signed-cert.sh
+   ```
 
 ## 贡献
 

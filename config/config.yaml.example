@@ -1,6 +1,9 @@
 # 服务器配置
 server:
   port: 8866
+  enable_https: false  # Set to true to enable HTTPS
+  cert_file: ""        # Path to SSL certificate file (e.g., /path/to/cert.pem)
+  key_file: ""         # Path to SSL private key file (e.g., /path/to/key.pem)
 
 # 同步配置
 sync:
@@ -29,7 +32,7 @@ storage:
 
 # 下载配置
 download:
-  base_url: http://localhost:8866
+  base_url: http://localhost:8866  # Change to https://your-domain.com:8866 when HTTPS is enabled
 
 # 限流配置
 rate_limit:

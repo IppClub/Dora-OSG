@@ -1,5 +1,8 @@
 server:
   port: 8866
+  enable_https: false  # Set to true to enable HTTPS
+  cert_file: ""        # Path to SSL certificate file (e.g., /path/to/cert.pem)
+  key_file: ""         # Path to SSL private key file (e.g., /path/to/key.pem)
 
 sync:
   interval: 24h
@@ -174,7 +177,7 @@ storage:
   path: ./data
 
 download:
-  base_url: http://localhost:8866
+  base_url: http://localhost:8866  # Change to https://your-domain.com:8866 when HTTPS is enabled
 
 rate_limit:
   rps: 10

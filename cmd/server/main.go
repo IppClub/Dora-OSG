@@ -58,8 +58,21 @@ func main() {
 
 	// Start server in a goroutine
 	go func() {
-		log.Info("starting server", zap.Int("port", cfg.Server.Port))
-		if err := srv.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+		log.Info("starting server",
+			zap.Int("port", cfg.Server.Port),
+			zap.Bool("https", cfg.Server.EnableHTTPS))
+
+		var err error
+		if cfg.Server.EnableHTTPS {
+			if cfg.Server.CertFile == "" || cfg.Server.KeyFile == "" {
+				log.Fatal("HTTPS enabled but cert_file or key_file not configured")
+			}
+			err = srv.ListenAndServeTLS(cfg.Server.CertFile, cfg.Server.KeyFile)
+		} else {
+			err = srv.ListenAndServe()
+		}
+
+		if err != nil && err != http.ErrServerClosed {
 			log.Fatal("failed to start server", zap.Error(err))
 		}
 	}()
@@ -69,14 +82,11 @@ func main() {
 		ticker := time.NewTicker(cfg.Sync.Interval)
 		defer ticker.Stop()
 
-		for {
-			select {
-			case <-ticker.C:
-				if err := syncService.SyncAll(); err != nil {
-					log.Error("periodic sync failed", zap.Error(err))
-				} else {
-					log.Info("periodic sync completed successfully")
-				}
+		for range ticker.C {
+			if err := syncService.SyncAll(); err != nil {
+				log.Error("periodic sync failed", zap.Error(err))
+			} else {
+				log.Info("periodic sync completed successfully")
 			}
 		}
 	}()
