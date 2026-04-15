@@ -21,10 +21,6 @@ repos:
     url: "https://gitcode.com/xiongbingfu/First-game"
     sync: "https://gitcode.com/xiongbingfu/First-game"
 
-  - name: "lweex999-bailuxianhua"
-    url: "https://github.com/lweex999/bailuxianhua"
-    sync: "https://gh-proxy.com/https://github.com/lweex999/bailuxianhua"
-
   - name: "haiyangxing4521-haiyangxing"
     url: "https://gitcode.com/haiyangxing4521/haiyangxing"
     sync: "https://gitcode.com/haiyangxing4521/haiyangxing"
